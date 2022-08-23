@@ -3,15 +3,12 @@ function sendWhatsapp(number,message) {
     numberToSend =  number.replace(/[^\w ]/g, '');
     (numberToSend[0] === '0')? numberToSend = '972' +numberToSend.slice(1): numberToSend = numberToSend;
 
-    if(number){
+    if(number.length === 10 && !isNaN(number)){
         var url = `https://api.whatsapp.com/send?phone=${numberToSend}&text=${message}`;
         window.open(url, '_blank');
-    
-
     }
     clearInputs()
 };
-
 
 function getInputValue() {  
     let numberValue = document.getElementById("inputId").value;
